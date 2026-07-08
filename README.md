@@ -42,3 +42,8 @@ npm run dev
 - added ?page= and ?limit= for pagination
 - returns total and totalPages so frontend knows how many pages exist
 - tested with curl - filtering and pagination both working
+
+## Day 6 - API testing with Postman
+
+- tested all 5 routes in postman - create, get all, get one, update, delete
+- also tested validation errors - empty title and invalid id both correctly rejected
