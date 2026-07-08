@@ -28,3 +28,10 @@ npm run dev
 - created taskController.js with create, get all, get one, update, delete
 - created taskRoutes.js and connected it in app.js
 - tested all routes with curl - create, read, update, delete all working
+
+## Day 4 - Validation
+
+- installed express-validator
+- created taskValidator.js middleware with rules for create, update, and id checks
+- wired validators into taskRoutes.js
+- tested with curl - empty title, invalid status, invalid id all correctly rejected

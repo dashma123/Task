@@ -6,10 +6,24 @@ import {
   updateTask,
   deleteTask,
 } from '../controllers/taskController.js';
+import {
+  validateCreateTask,
+  validateUpdateTask,
+  validateTaskId,
+  handleValidationErrors,
+} from '../middleware/taskValidator.js';
 
 const router = express.Router();
 
-router.route('/').post(createTask).get(getTasks);
-router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask);
+router
+  .route('/')
+  .post(validateCreateTask, handleValidationErrors, createTask)
+  .get(getTasks);
+
+router
+  .route('/:id')
+  .get(validateTaskId, handleValidationErrors, getTask)
+  .patch(validateTaskId, validateUpdateTask, handleValidationErrors, updateTask)
+  .delete(validateTaskId, handleValidationErrors, deleteTask);
 
 export default router;
