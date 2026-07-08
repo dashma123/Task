@@ -1,49 +1,51 @@
 # Task Manager API
+A REST API for managing tasks.
 
-Simple REST API for managing tasks.
+## Technology Used 
+Node.js
+Express.js
+MongoDB
+Mongoose
+dotenv
+## Installation
+-git clone <repository-url>
+-cd task-manager-api
+-npm install
+## .env file 
+PORT=3000
+NODE_ENV=development
+MONGO_URI=mongodb://localhost:27017/task-manager
+## run the project
+npm run dev 
+## features 
+-Create a task
+-View all tasks
+-View a single task
+-Update a task
+-Delete a task
+-Filter tasks by status
+-Pagination
+-Input validation
+## API Endpoints
+GET /api/tasks
+GET /api/tasks/:id
+PATCH /api/tasks/:id
+DELETE /api/tasks/:id
+## Validation
+The API validates incoming data before processing the request.
+1.The task title is required.
+2.The title cannot be empty.
+3.The status must be pending, in progress, or done.
+4.An invalid task ID returns a 400 Bad Request response.
+## Testing
+I tested all the endpoints using Postman and cURL. I verified that creating, reading, updating, and deleting tasks worked correctly. I also tested filtering, pagination, validation, and error handling to make sure the API behaved as expected.
+## Progress log
+Day 1: Set up the project and installed the required packages.
+Day 2: Connected the application to MongoDB.
+Day 3: Implemented CRUD operations.
+Day 4: Added validation for task data.
+Day 5: Implemented filtering and pagination.
+Day 6: Tested all API endpoints using Postman and fixed minor issues.
+Day 7: Completed the documentation and did a final review of the project.
 
-## Day 1 - Node & Express setup
 
-- set up project with npm init
-- installed express, mongoose, dotenv, cors, morgan, nodemon
-- created app.js and server.js
-- added basic test route on "/"
-- set up .env for port number
-- added .gitignore for node_modules and .env
-
-to run:
-npm install
-npm run dev
-
-## Day 2 - MongoDB connection
-
-- installed mongoose (already done day 1)
-- created src/config/db.js to connect to mongodb using mongoose
-- added MONGO_URI to .env
-- updated server.js to connect to db first, then start the server
-
-## Day 3 - CRUD APIs
-
-- created Task model with title, description, status
-- created taskController.js with create, get all, get one, update, delete
-- created taskRoutes.js and connected it in app.js
-- tested all routes with curl - create, read, update, delete all working
-
-## Day 4 - Validation
-
-- installed express-validator
-- created taskValidator.js middleware with rules for create, update, and id checks
-- wired validators into taskRoutes.js
-- tested with curl - empty title, invalid status, invalid id all correctly rejected
-
-## Day 5 - Filtering & pagination
-
-- updated getTasks to support ?status= filter
-- added ?page= and ?limit= for pagination
-- returns total and totalPages so frontend knows how many pages exist
-- tested with curl - filtering and pagination both working
-
-## Day 6 - API testing with Postman
-
-- tested all 5 routes in postman - create, get all, get one, update, delete
-- also tested validation errors - empty title and invalid id both correctly rejected
