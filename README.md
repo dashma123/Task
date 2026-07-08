@@ -14,3 +14,10 @@ Simple REST API for managing tasks.
 to run:
 npm install
 npm run dev
+
+## Day 2 - MongoDB connection
+
+- installed mongoose (already done day 1)
+- created src/config/db.js to connect to mongodb using mongoose
+- added MONGO_URI to .env
+- updated server.js to connect to db first, then start the server
