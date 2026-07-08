@@ -21,3 +21,10 @@ npm run dev
 - created src/config/db.js to connect to mongodb using mongoose
 - added MONGO_URI to .env
 - updated server.js to connect to db first, then start the server
+
+## Day 3 - CRUD APIs
+
+- created Task model with title, description, status
+- created taskController.js with create, get all, get one, update, delete
+- created taskRoutes.js and connected it in app.js
+- tested all routes with curl - create, read, update, delete all working

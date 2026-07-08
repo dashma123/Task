@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import taskRoutes from './routes/taskRoutes.js';
 
 dotenv.config();
 
@@ -20,6 +21,8 @@ app.get('/', (req, res) => {
     message: 'Task Manager API is running',
   });
 });
+
+app.use('/api/tasks', taskRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
