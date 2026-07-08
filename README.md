@@ -35,3 +35,10 @@ npm run dev
 - created taskValidator.js middleware with rules for create, update, and id checks
 - wired validators into taskRoutes.js
 - tested with curl - empty title, invalid status, invalid id all correctly rejected
+
+## Day 5 - Filtering & pagination
+
+- updated getTasks to support ?status= filter
+- added ?page= and ?limit= for pagination
+- returns total and totalPages so frontend knows how many pages exist
+- tested with curl - filtering and pagination both working
